@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-xs-12">
+        <img 
+        [src]="recipe.imagePath" 
+        alt="{{ recipe.name }}" 
+        class="img-responsive"
+        style="max-height: 200px; border-radius: 70%; box-shadow: 0 0 2px 1px rgba(28, 72, 194, 0.5);">
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h1 class="transparent-text">{{ recipe.name }}</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="btn-group" appDropdown>
+            <button type="button" class="btn btn-primary dropdown-toggle">
+                Manage Recipe <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a (click) = "onAddToShoppingList()" style="cursor:pointer;">To Shopping List </a>
+                </li>
+                <li>
+                    <a style="cursor:pointer;" (click)="onEditRecipe()"> Edit Recipe </a>
+                </li>
+                <li>
+                    <a style="cursor:pointer;" (click)="onDeleteRecipe()"> Delete Recipe</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+       <hr>
+       {{ recipe.description }}
+       <hr>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <ul class="list-group">
+            <li
+            class="list-group-item"
+            *ngFor="let ingredient of recipe.ingredients">
+            {{ ingredient.name }} - {{ ingredient.amount }} </li>
+        </ul>
+    </div>
+</div>
